@@ -1,80 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Hari Mouse</title>
-
-<style>
-body {
-  margin: 0;
-  background: #0a0a0a;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-.hero {
-  padding: 80px 20px;
-}
-
-h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 18px;
-  opacity: 0.9;
-}
-
-.card {
-  margin: 40px auto;
-  max-width: 500px;
-  padding: 25px;
-  border-radius: 10px;
-  background: #111;
-  box-shadow: 0 0 20px #00ff8840;
-}
-
-.step {
-  text-align: left;
-  margin-top: 20px;
-}
-
-.footer {
-  margin-top: 80px;
-  font-size: 14px;
-  opacity: 0.6;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Hari Mouse</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+      padding-top: 40px;
+    }
+    img {
+      width: 240px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="hero">
   <h1>🖱️ Hari Mouse</h1>
-  <p>Turn your phone into a wireless mouse</p>
-</div>
+  <p>Turn your phone into a mouse</p>
 
-<div class="card">
-  <h2>📱 How it works</h2>
+  <button onclick="showQR()">Start Phone as Mouse</button>
 
-  <div class="step">1️⃣ Open Hari Mouse on your laptop</div>
-  <div class="step">2️⃣ Scan the QR using your phone</div>
-  <div class="step">3️⃣ Touch & move → cursor moves</div>
-  <div class="step">4️⃣ Tap → Left click</div>
-  <div class="step">5️⃣ Two fingers → Right click</div>
-</div>
+  <div id="qr"></div>
 
-<div class="card">
-  <h2>🚀 Start Now</h2>
-  <p>Run Hari Mouse server on your laptop</p>
-  <p><b>Phone & Laptop must be on same Wi-Fi</b></p>
-</div>
+  <script>
+    function showQR() {
+      const phoneURL = location.origin + "/phone.html";
+      const qrURL =
+        "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" +
+        encodeURIComponent(phoneURL);
 
-<div class="footer">
-  © 2026 Hari Mouse
-</div>
+      document.getElementById("qr").innerHTML =
+        `<p>Scan with your phone</p><img src="${qrURL}" />`;
+    }
+  </script>
 
 </body>
 </html>
