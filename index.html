@@ -1,44 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Hari Mouse</title>
-  <style>
-    body {
-      background: black;
-      color: white;
-      font-family: Arial;
-      text-align: center;
-      padding-top: 60px;
-    }
-    button {
-      font-size: 20px;
-      padding: 15px 25px;
-      margin-top: 30px;
-      cursor: pointer;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="container">
+    <h1>🖱️ Hari Mouse</h1>
+    <p class="subtitle">Turn your phone into a wireless mouse</p>
 
-  <h1>🖱️ Hari Mouse</h1>
-  <p>Turn your phone into a wireless mouse</p>
+    <div class="card">
+      <h2>📱 How it works</h2>
+      <ol>
+        <li>Open Hari Mouse on your laptop</li>
+        <li>Click <b>Get QR</b></li>
+        <li>Scan QR using your phone</li>
+        <li>Touch & move → cursor moves</li>
+      </ol>
+    </div>
 
-  <p><b>STEP 1:</b> Connect phone & laptop to same Wi-Fi</p>
-  <p><b>STEP 2:</b> Run server on laptop</p>
-  <p><b>STEP 3:</b> Click button below on PHONE</p>
+    <div class="card">
+      <h2>🚀 Start Now</h2>
+      <p>Server already running on laptop</p>
+      <p class="hint">Phone & Laptop must be on same Wi-Fi</p>
 
-  <button onclick="openLocal()">Connect to Laptop</button>
+      <!-- ONLY GET QR SHOULD OPEN QR -->
+      <button class="secondary" onclick="getQR()">Get QR</button>
 
-  <script>
-    function openLocal() {
-      alert(
-        "Open this on your PHONE:\n\n" +
-        "http://YOUR_LAPTOP_IP:4000\n\n" +
-        "Example:\nhttp://192.168.0.43:4000"
-      );
-    }
-  </script>
+      <div id="qrBox"></div>
+    </div>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
