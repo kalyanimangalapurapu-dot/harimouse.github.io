@@ -1,46 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Hari Mouse</title>
+
   <style>
     body {
-      background: black;
+      background: #000;
       color: white;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 40px;
+      padding: 40px 20px;
     }
+
+    h1 {
+      font-size: 42px;
+    }
+
+    .card {
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 25px;
+      background: #111;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,255,120,0.25);
+    }
+
     img {
       width: 240px;
       margin-top: 20px;
     }
+
     button {
-      padding: 12px 20px;
+      background: #00ff99;
+      border: none;
+      padding: 14px 26px;
       font-size: 16px;
+      border-radius: 8px;
       cursor: pointer;
       margin-top: 20px;
     }
   </style>
 </head>
+
 <body>
 
   <h1>🖱️ Hari Mouse</h1>
-  <p>Turn your phone into a mouse</p>
+  <p>Turn your phone into a wireless mouse</p>
 
-  <button onclick="showQR()">Start Phone as Mouse</button>
+  <div class="card">
+    <h2>📱 How it works</h2>
+    <p>1️⃣ Open this site on laptop</p>
+    <p>2️⃣ Scan QR using phone</p>
+    <p>3️⃣ Touch → cursor moves</p>
+    <p>4️⃣ Tap → left click</p>
+    <p>5️⃣ Two fingers → right click</p>
+  </div>
 
-  <div id="qr"></div>
+  <div class="card">
+    <h2>🚀 Start Now</h2>
+    <p>Phone & laptop must be on same Wi-Fi</p>
+    <button onclick="showQR()">Show QR Code</button>
+    <div id="qr"></div>
+  </div>
 
   <script>
     function showQR() {
-      const phoneURL = location.origin + "/phone.html";
+      const phonePage = location.origin + "/phone.html";
+
       const qrURL =
-        "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" +
-        encodeURIComponent(phoneURL);
+        "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
+        encodeURIComponent(phonePage);
 
       document.getElementById("qr").innerHTML =
-        `<p>Scan with your phone</p><img src="${qrURL}" />`;
+        `<img src="${qrURL}" alt="QR Code">`;
     }
   </script>
 
