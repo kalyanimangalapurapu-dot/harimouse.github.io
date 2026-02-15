@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hari Mouse – Phone</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+      touch-action: none;
+    }
+    #area {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+<h2>📱 Phone Mouse</h2>
+<p>Move finger | Tap = Click | 2 fingers = Right Click</p>
+
+<div id="area"></div>
+
+<script>
+  const ws = new WebSocket("ws://" + location.hostname + ":8765");
+
+  let lastX = null, lastY = null;
+
+  const area = document.getElementById("area");
+
+  area.addEventListener("touchstart", e => {
+    if (e.touches.length === 1)
+      ws.send(JSON.stringify({ type: "left_click" }));
+    if (e.touches.length === 2)
+      ws.send(JSON.stringify({ type: "right_click" }));
+  });
+
+  area.addEventListener("touchmove", e => {
+    e.preventDefault();
+    const t = e.touches[0];
+
+    if (lastX !== null) {
+      ws.send(JSON.stringify({
+        type: "move",
+        dx: (t.clientX - lastX) * 0.3,
+        dy: (t.clientY - lastY) * 0.3
+      }));
+    }
+
+    lastX = t.clientX;
+    lastY = t.clientY;
+  });
+
+  area.addEventListener("touchend", () => {
+    lastX = lastY = null;
+  });
+</script>
+
+</body>
+</html>
