@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Hari Mouse</title>
   <style>
     body {
@@ -10,26 +11,34 @@
       text-align: center;
       padding-top: 60px;
     }
-    a {
-      display: inline-block;
+    button {
+      font-size: 20px;
+      padding: 15px 25px;
       margin-top: 30px;
-      padding: 15px 30px;
-      background: #00ff88;
-      color: black;
-      text-decoration: none;
-      font-size: 18px;
-      border-radius: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+
   <h1>🖱️ Hari Mouse</h1>
   <p>Turn your phone into a wireless mouse</p>
 
-  <p>1️⃣ Open Hari Mouse server on your laptop</p>
-  <p>2️⃣ QR will appear on laptop screen</p>
-  <p>3️⃣ Scan QR using phone</p>
+  <p><b>STEP 1:</b> Connect phone & laptop to same Wi-Fi</p>
+  <p><b>STEP 2:</b> Run server on laptop</p>
+  <p><b>STEP 3:</b> Click button below on PHONE</p>
 
-  <a href="#">Download / Run on Laptop</a>
+  <button onclick="openLocal()">Connect to Laptop</button>
+
+  <script>
+    function openLocal() {
+      alert(
+        "Open this on your PHONE:\n\n" +
+        "http://YOUR_LAPTOP_IP:4000\n\n" +
+        "Example:\nhttp://192.168.0.43:4000"
+      );
+    }
+  </script>
+
 </body>
 </html>
