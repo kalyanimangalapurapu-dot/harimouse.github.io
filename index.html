@@ -1,81 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
   <title>Hari Mouse</title>
-
   <style>
     body {
-      background: #000;
+      background: black;
       color: white;
-      font-family: Arial, sans-serif;
+      font-family: Arial;
       text-align: center;
-      padding: 40px 20px;
+      padding-top: 60px;
     }
-
-    h1 {
-      font-size: 42px;
-    }
-
-    .card {
-      max-width: 500px;
-      margin: 30px auto;
-      padding: 25px;
-      background: #111;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,255,120,0.25);
-    }
-
-    img {
-      width: 240px;
-      margin-top: 20px;
-    }
-
-    button {
-      background: #00ff99;
-      border: none;
-      padding: 14px 26px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 20px;
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: #00ff88;
+      color: black;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 10px;
     }
   </style>
 </head>
-
 <body>
-
   <h1>🖱️ Hari Mouse</h1>
   <p>Turn your phone into a wireless mouse</p>
 
-  <div class="card">
-    <h2>📱 How it works</h2>
-    <p>1️⃣ Open this site on laptop</p>
-    <p>2️⃣ Scan QR using phone</p>
-    <p>3️⃣ Touch → cursor moves</p>
-    <p>4️⃣ Tap → left click</p>
-    <p>5️⃣ Two fingers → right click</p>
-  </div>
+  <p>1️⃣ Open Hari Mouse server on your laptop</p>
+  <p>2️⃣ QR will appear on laptop screen</p>
+  <p>3️⃣ Scan QR using phone</p>
 
-  <div class="card">
-    <h2>🚀 Start Now</h2>
-    <p>Phone & laptop must be on same Wi-Fi</p>
-    <button onclick="showQR()">Show QR Code</button>
-    <div id="qr"></div>
-  </div>
-
-  <script>
-    function showQR() {
-      const phonePage = location.origin + "/phone.html";
-
-      const qrURL =
-        "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
-        encodeURIComponent(phonePage);
-
-      document.getElementById("qr").innerHTML =
-        `<img src="${qrURL}" alt="QR Code">`;
-    }
-  </script>
-
+  <a href="#">Download / Run on Laptop</a>
 </body>
 </html>
